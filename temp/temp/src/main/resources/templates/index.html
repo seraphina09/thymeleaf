@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div name = "title">
+    <h1>温度確認ページ</h1>
+    <p><h3>今の温度送信状況</h3></p>
+</div>
+    <nav>
+        <div name = "form" id = "form">
+            <form>
+                <label for = "id_search"> Number </label>
+                <input type = "text" id ="id_search" name ="id_search" placeholder="順番入力">
+                <label for = "temp_search"> Temp</label>
+                <input type = "text" id="temp_search" name = "temp_search" placeholder="温度入力">
+                <button type ="submit">検索</button>
+            </form>
+        </div>
+    </nav>
+
+    <article>
+        <div id ="wrap">
+            <table border = 1>
+                <tr>
+                    <th>
+                        number
+                    </th>
+                    <th>
+                        温度
+                    </th>
+                    <th>時間</th>
+                </tr>
+
+                <tr th:each = "temp : ${temps}">
+
+                <td  th:text="*{temp.id}">
+                </td>
+
+                <td th:text="*{temp.temp}">
+                </td>
+
+                <td th:text="*{temp.dateCreated}">
+                </td>
+            </tr>
+            </table>
+        </div>
+    </article>
+
+</body>
+</html>
